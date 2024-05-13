@@ -10,7 +10,6 @@ class UserViewModel extends ChangeNotifier {
   void setUserDetails(User details) {
     currentUser = details;
     uid = details.uid;
-    // notifyListeners();
   }
 
 }

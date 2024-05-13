@@ -1,6 +1,7 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class UserRepository {
@@ -14,7 +15,9 @@ class UserRepository {
       Map<String, dynamic> data = {
         "name" : currentUser.displayName.toString(),
         "email" : currentUser.email.toString(),
-        "phone" : currentUser.phoneNumber.toString()
+        "phone" : currentUser.phoneNumber.toString(),
+        "id" : currentUser.uid.toString(),
+        "fcmToken" : await FirebaseMessaging.instance.getToken()
       };
       await FirebaseDatabase.instance.ref("Users/${currentUser.uid}").set(data);
     }

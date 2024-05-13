@@ -31,11 +31,8 @@ class _HomeViewState extends State<HomeView> {
           setState(() {});
         },
       ),
-      floatingActionButton: index == 0 ? FloatingActionButton(onPressed: () async {
-        ChatViewModel chatProvider = context.read<ChatViewModel>();
-        await chatProvider.loadAllUserList().then((value) {
+      floatingActionButton: index == 0 ? FloatingActionButton(onPressed: () {
           Navigator.push(context, MaterialPageRoute(builder: (context) => const AllContactView(),));
-        });
       }, child: const Icon(Icons.people_alt_sharp, color: Colors.black54,)) : Container(),
     );
   }

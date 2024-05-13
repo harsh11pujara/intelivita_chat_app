@@ -15,11 +15,20 @@ Widget profileView() {
                   children: [
                     profileElements(title: "Name", subtitle: user.currentUser!.displayName.toString()),
                     profileElements(title: "Email", subtitle: user.currentUser!.email.toString()),
-                    profileElements(title: "Phone", subtitle: user.currentUser!.phoneNumber.toString()),
+                    profileElements(
+                        title: "Phone",
+                        subtitle: user.currentUser!.phoneNumber != null ? user.currentUser!.phoneNumber.toString() : "-"),
                     Expanded(child: Container()),
-                    Center(child: TextButton(onPressed: () async {
-                      await UserRepository().signOut();
-                    },child: const Text("SignOut", style: TextStyle(color: Colors.red),)),)
+                    Center(
+                      child: TextButton(
+                          onPressed: () async {
+                            await UserRepository().signOut();
+                          },
+                          child: const Text(
+                            "SignOut",
+                            style: TextStyle(color: Colors.red),
+                          )),
+                    )
                   ],
                 )
               : const Center(
