@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:intelivita_chat_app/ui/views/all_contacts_view.dart';
 import 'package:intelivita_chat_app/ui/views/profile_view.dart';
 import 'package:intelivita_chat_app/ui/views/recent_chat_view.dart';
+import 'package:intelivita_chat_app/view_models/chat_view_model.dart';
+import 'package:provider/provider.dart';
 
 class HomeView extends StatefulWidget {
   const HomeView({Key? key}) : super(key: key);
@@ -28,6 +31,12 @@ class _HomeViewState extends State<HomeView> {
           setState(() {});
         },
       ),
+      floatingActionButton: index == 0 ? FloatingActionButton(onPressed: () async {
+        ChatViewModel chatProvider = context.read<ChatViewModel>();
+        await chatProvider.loadAllUserList().then((value) {
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const AllContactView(),));
+        });
+      }, child: const Icon(Icons.people_alt_sharp, color: Colors.black54,)) : Container(),
     );
   }
 }

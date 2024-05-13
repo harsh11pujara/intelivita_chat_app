@@ -1,5 +1,6 @@
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_database/firebase_database.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
 class UserRepository {
@@ -8,7 +9,18 @@ class UserRepository {
     return FirebaseAuth.instance.authStateChanges().asBroadcastStream();
   }
 
-  Future<dynamic> signInWithGoogle() async {
+  Future<void> createUserOnDB(User? currentUser) async {
+    if (currentUser != null) {
+      Map<String, dynamic> data = {
+        "name" : currentUser.displayName.toString(),
+        "email" : currentUser.email.toString(),
+        "phone" : currentUser.phoneNumber.toString()
+      };
+      await FirebaseDatabase.instance.ref("Users/${currentUser.uid}").set(data);
+    }
+  }
+
+  Future<UserCredential?> signInWithGoogle() async {
     try {
       final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
 
@@ -25,9 +37,12 @@ class UserRepository {
       // TODO
       print('exception->$e');
     }
+    return null;
   }
 
   Future<void> signOut() async{
-    await FirebaseAuth.instance.signOut();
+    await GoogleSignIn().signOut().then((value) async {
+      await FirebaseAuth.instance.signOut();
+    });
   }
 }

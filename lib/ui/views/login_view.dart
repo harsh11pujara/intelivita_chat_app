@@ -18,7 +18,11 @@ class LoginView extends StatelessWidget {
               InkWell(
                 onTap: () async {
                   // SignIN with Google
-                  await UserRepository().signInWithGoogle();
+                  await UserRepository().signInWithGoogle().then((value) async {
+                    if (value != null) {
+                      await UserRepository().createUserOnDB(value.user);
+                    }
+                  });
                 },
                 child: Container(
                   height: 50,

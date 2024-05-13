@@ -23,6 +23,14 @@
           }
         },
         {
+          "client_id": "359469852205-i7o0d69dl0f0d8licuin5ijli7i9fb8h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intelivita_chat_app",
+            "certificate_hash": "85cc2fee1a9cd90ce0bafadb2b09a5cf3b4b4945"
+          }
+        },
+        {
           "client_id": "359469852205-111vbt2on0qkn6bj11s6srruapai4hh2.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -38,6 +46,13 @@
             {
               "client_id": "359469852205-111vbt2on0qkn6bj11s6srruapai4hh2.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "359469852205-2tdasr2l51qsbnlm7529v1k0bplb7eea.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.intelivitaChatApp"
+              }
             }
           ]
         }
