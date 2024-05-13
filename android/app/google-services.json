@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "359469852205",
+    "firebase_url": "https://intelivita-chat-app-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "intelivita-chat-app",
+    "storage_bucket": "intelivita-chat-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:359469852205:android:882f72b1838b0b962e3aa4",
+        "android_client_info": {
+          "package_name": "com.example.intelivita_chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "359469852205-13656a6190k7cuf1e1fiktm6n93nfqrg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.intelivita_chat_app",
+            "certificate_hash": "798043bbcbd2409ae48700d8d6c4847f5e9637a2"
+          }
+        },
+        {
+          "client_id": "359469852205-111vbt2on0qkn6bj11s6srruapai4hh2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpR0ODVqmwymErSSrgUQAON1XeDANJTk4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "359469852205-111vbt2on0qkn6bj11s6srruapai4hh2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
