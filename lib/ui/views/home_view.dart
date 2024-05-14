@@ -19,7 +19,7 @@ class _HomeViewState extends State<HomeView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(title: Text(index == 0 ? "Recent Chats" : "Profile")),
-      body: index == 0 ? recentChatView() : profileView(),
+      body: index == 0 ? recentChatView(context) : profileView(),
       bottomNavigationBar: BottomNavigationBar(
         currentIndex: index,
         items: const [
