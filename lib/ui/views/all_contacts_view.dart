@@ -64,7 +64,7 @@ class _AllContactViewState extends State<AllContactView> {
                           child: profileElements(
                               title: userList[index].name.toString(),
                               subtitle: userList[index].email.toString(),
-                              subtitleSize: 12,
+                              subtitleSize: 10,
                               tileColor: Colors.grey[200]),
                         ),
                       );

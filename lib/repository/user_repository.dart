@@ -36,9 +36,11 @@ class UserRepository {
       );
 
       return await FirebaseAuth.instance.signInWithCredential(credential);
-    } on Exception catch (e) {
+    } on FirebaseException catch (e) {
       // TODO
       print('exception->$e');
+      print('exception->${e.message}');
+
     }
     return null;
   }
