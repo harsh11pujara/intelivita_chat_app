@@ -34,7 +34,7 @@ class _AllContactViewState extends State<AllContactView> {
           return userList.isNotEmpty
               ? Container(
                   height: double.infinity,
-                  padding: const EdgeInsets.symmetric(horizontal: 20),
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: ListView.builder(
                     itemCount: userList.length,
                     shrinkWrap: true,
@@ -42,21 +42,38 @@ class _AllContactViewState extends State<AllContactView> {
                       return InkWell(
                         onTap: () async {
                           debugPrint("user${userProvider.uid} peer${userList[index].id} ");
-                          await ChatRepository().createChatRoom(userUid: userProvider.uid, peerUid: userList[index].id.toString()).then((value) {
-                            if(value != null) {
-                              Navigator.push(context, MaterialPageRoute(builder: (context) => ChatView(chatRoom: value, peer: userList[index],),));
+                          await ChatRepository()
+                              .createChatRoom(userUid: userProvider.uid, peerUid: userList[index].id.toString())
+                              .then((value) {
+                            if (value != null) {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                    builder: (context) => ChatView(
+                                      chatRoom: value,
+                                      peer: userList[index],
+                                    ),
+                                  ));
                             } else {
                               // Fail to create room
                             }
                           });
                         },
-                        child: profileElements(
-                            title: userList[index].name.toString(), subtitle: userList[index].email.toString(), subtitleSize: 14),
+                        child: Container(
+                          margin: const EdgeInsets.symmetric(vertical: 3),
+                          child: profileElements(
+                              title: userList[index].name.toString(),
+                              subtitle: userList[index].email.toString(),
+                              subtitleSize: 12,
+                              tileColor: Colors.grey[200]),
+                        ),
                       );
                     },
                   ),
                 )
-              : const Center(child: CircularProgressIndicator(),);
+              : const Center(
+                  child: CircularProgressIndicator(),
+                );
         },
       ),
     );

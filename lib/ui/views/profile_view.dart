@@ -8,7 +8,7 @@ Widget profileView() {
   return Consumer<UserViewModel>(
     builder: (context, user, child) {
       return Container(
-          padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: const EdgeInsets.symmetric(horizontal: 15, vertical: 20),
           height: double.infinity,
           child: user.currentUser != null
               ? Column(
