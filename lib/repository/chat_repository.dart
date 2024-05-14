@@ -13,7 +13,7 @@ class ChatRepository {
   Future<ChatModel?> createChatRoom({required String userUid, required String peerUid}) async {
     ChatModel? data;
     String chatRoomId = userUid.compareTo(peerUid) > 0 ? userUid+peerUid : peerUid+userUid;
-    ChatModel roomData = ChatModel(chatRoomId: chatRoomId, participants: [peerUid, userUid], lastMsgTime: "");
+    ChatModel roomData = ChatModel(chatRoomId: chatRoomId, participants: [peerUid, userUid], lastMsgTime: "", messages: []);
     var chatRoom = FirebaseDatabase.instance.ref("ChatRoom/$chatRoomId");
     DataSnapshot snapshot = await chatRoom.get();
     if(!snapshot.exists) {
