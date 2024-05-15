@@ -113,13 +113,13 @@ class _ChatViewState extends State<ChatView> {
                           .trim()
                           .isNotEmpty) {
                         String msgId = math.Random().nextInt(4294967296).toString();
+                        String msgTime = DateTime.now().toIso8601String();
                         MessageModel message = MessageModel(
                             msgType: "Text",
                             msg: messageController.text.trim(),
                             msgId: msgId,
                             senderId: user.uid.toString(),
-                            createdOn: DateTime.now().toIso8601String());
-                        messageController.clear();
+                            createdOn: msgTime);
                         try {
                           DatabaseReference ref = FirebaseDatabase.instance
                               .ref("ChatRoom/${widget.chatRoom.chatRoomId}/messages");
@@ -137,6 +137,8 @@ class _ChatViewState extends State<ChatView> {
                             });
                           }
                           messageController.clear();
+                          /// Setting last msg time in chat room
+                          await FirebaseDatabase.instance.ref("ChatRoom/${widget.chatRoom.chatRoomId}/lastMsgTime").set(msgTime);
                         } on Exception catch (e) {
                           showSnackBar(context, "Unable to send message");
                         }

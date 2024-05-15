@@ -61,7 +61,7 @@ Future<void> main() async {
             channelDescription: 'chat text',
             importance: NotificationImportance.High,
             channelShowBadge: true,
-            vibrationPattern: highVibrationPattern
+            vibrationPattern: lowVibrationPattern
         ),
       ]
   );
